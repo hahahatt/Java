@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class ChessEx {
+	public static void main(String[] args) {
+		Scanner scanner=new Scanner(System.in);
+		
+		String inputData=scanner.nextLine();
+		int row=inputData.charAt(1)-'0';//49 -48=1, 1을 정수 값으로 저장
+		int column=inputData.charAt(0)-'a'+1; // if(a=='a') 97-97+1=1값을 저장 배열에 사용.
+		
+		int[] dx= {-2,-1,1,2,2,1,-1,-2};
+		int[] dy= {-1,-2,-2,-1,1,2,2,1};
+		
+		int result=0;
+		for(int i=0;i<8;i++)
+		{
+			int nextRow=row+dx[i];
+			int nextcolumn=column+dy[i];
+			
+			if(nextRow>=1 && nextRow<=8 && nextcolumn>=1 && nextcolumn<=8)
+				result+=1;
+		}
+		System.out.println(result);
+		
+		
+		scanner.close();
+	}
+
+
+}
